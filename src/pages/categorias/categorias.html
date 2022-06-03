@@ -9,6 +9,15 @@
 </ion-header>
 
 <ion-content padding>
-  <p>Pagina de categorias</p>
+  
+  <ion-list>
+    <button ion-item *ngFor="let item of items">
+      <ion-thumbnail item-start>
+        <img class="imgCat" src="assets/imgs/img{{item}}.png">
+      </ion-thumbnail>
+      <h2> {{item}}</h2>
+    </button>
+  </ion-list>
 
-</ion-content>
+  <img class="marcaDagua"src="assets/imgs/MarcaDagua.png" alt="logotipo">
+

@@ -1,3 +1,3 @@
 export interface CategoriaDTO{
-    nome : any;
+    nome : string;
 }

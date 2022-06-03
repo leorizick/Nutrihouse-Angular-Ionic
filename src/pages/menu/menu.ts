@@ -12,27 +12,18 @@ import { CategoriaService } from '../../services/domain/categoria.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-categorias',
-  templateUrl: 'categorias.html',
+  selector: 'page-menu',
+  templateUrl: 'menu.html',
 })
-export class CategoriasPage {
-
-  items : CategoriaDTO[];
-
-
+export class MenuPages {
+  
   constructor(
      public navCtrl: NavController,
-     public navParams: NavParams,
-     public categoriaService : CategoriaService ) {
+     public navParams: NavParams
+    ) {
     }
 
-  ionViewDidLoad() {
-    this.categoriaService.findAll()
-    .subscribe(response => {
-       this.items = response; 
-    },
-    error => {});
-  }
-
-
+    menu(){
+      this.navCtrl.setRoot("CategoriasPage");
+    }
 }
