@@ -6,12 +6,12 @@ import { LocalUser } from "../models/local_user";
 @Injectable()
 export class StorageService {
     getLocalUser() : LocalUser {
-        let usr = localStorage.getItem(STORAGE_KEYS.localUser);
-        if(usr == null) {
+        let user = localStorage.getItem(STORAGE_KEYS.localUser);
+        if(user == null) {
             return null;
         }
     else{
-        return JSON.parse(usr);
+        return JSON.parse(user);
     }
 }
     setLocalUser(obj : LocalUser){
