@@ -1,0 +1,20 @@
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+<ion-avatar>
+  <img class="circle" [src]= "user?.imageUrl || 'assets/imgs/avatarBlank.jpg'">
+</ion-avatar>
+    <h2 text-center> {{user?.username}}</h2>
+    <p text-center>{{user?.perfis}}</p>
+</ion-content>
