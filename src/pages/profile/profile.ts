@@ -18,7 +18,7 @@ import { StorageService } from '../../services/storage.service';
 })
 export class ProfilePage {
 
-  user : UserDto;
+  public user : UserDto;
 
   email: string;
 

@@ -13,12 +13,8 @@ export class UserService{
 
 findByUsername(username : string) : Observable<UserDto> {
 
-    let token = this.storage.getLocalUser().token;
-    let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-
     return this.http.get<UserDto>(
-        `${API_CONFIG.baseUrl}/usuarios/username?value=${username}`,
-        {'headers': authHeader});
+         `${API_CONFIG.baseUrl}/usuarios/username?value=${username}`);
 }
 
 getImageFromLocal(id : string) : Observable<any>{

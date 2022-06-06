@@ -1,24 +1,43 @@
 page-menu {
 
-    .CatButon{
-        max-width:70px;
-        max-height: 70px;
-        margin-top: 20px;
-        align-self: center;
-    }
-    
     .marcaDaguaMenu{
-        margin-top: -20px;
-        align-self: center;
-        margin: auto;
-        display: block;
+        margin-top: 15px;
+        margin-bottom: 20px;
                
     }
-    
-    .text1{
-        margin-top: -10px;
+
+    ion-grid{
+        --ion-grid-padding: 0;
+        --ion-grid-column-padding: 0;
+
+      
     }
 
+    .ProfButton{
+       
+        border-radius: 50%;
+        
+    }
+    .CatButton{
+        
+        
+    }
     
+   
+    .CliButton{
+      border-radius: 50%;
+        
+    }
+
+    .text1 {
+        margin-left: 60px;
+    }
     
+    .text2 {
+        margin-left: 60px;
+    }
+
+    .text3 {
+        margin-left: 60px;
+    }
 }

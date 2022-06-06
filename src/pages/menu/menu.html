@@ -11,16 +11,46 @@
     </ion-navbar>
   </ion-header>
 
-  <ion-content padding>
+  
+ 
   <img class="marcaDaguaMenu"src="assets/imgs/menu.jpg" alt="logotipo">
 
+    <ion-list>
+      <button ion-item (click)="profilePage()">
+        <ion-thumbnail item-start>
+          <img class="ProfButton" src= "assets/imgs/avatarblank.jpg"  >
+        </ion-thumbnail>
+        <h2> Profile</h2>
+      </button>
+      <button ion-item  (click)="clientesPage()">
+          <ion-thumbnail item-start>
+            <img class="CliButton" src="assets/imgs/clientesicon.png">
+          </ion-thumbnail>
+          <h2> Clientes</h2>
+        </button>
+        <button ion-item (click)="categoriasPage()">
+        <ion-thumbnail item-start>
+          <img class="CatButton" src="assets/imgs/categorieicon.png" >
+        </ion-thumbnail>
+        <h2> Categorias</h2>
+      </button>
+      <button ion-item (click)="ProdutosPage()">
+        <ion-thumbnail item-start>
+          <img class="ProdButton" src="assets/imgs/produtosicon.png" >
+        </ion-thumbnail>
+        <h2> Produtos</h2>
+      </button>
+      
+    </ion-list>
   <form>
-    <img class="CatButon" src="assets/imgs/categorieicon.png" (click)="menu()">
-    <p class="text1">Categorias</p>
+  </form>
+
+  <form>
+    
   </form>
 
  
 
-</ion-content>
+
   
 

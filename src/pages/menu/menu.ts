@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CategoriaDTO } from '../../models/categoria.dto';
-import { CategoriaService } from '../../services/domain/categoria.service';
+import { UserDto } from '../../models/user.dto';
 
-/**
- * Generated class for the CategoriasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,6 +9,8 @@ import { CategoriaService } from '../../services/domain/categoria.service';
   templateUrl: 'menu.html',
 })
 export class MenuPages {
+
+  user : UserDto;
   
   constructor(
      public navCtrl: NavController,
@@ -23,7 +18,13 @@ export class MenuPages {
     ) {
     }
 
-    menu(){
+    categoriasPage(){
       this.navCtrl.setRoot("CategoriasPage");
     }
+
+    profilePage(){
+      this.navCtrl.setRoot("ProfilePage");
+    }
+
+  
 }
