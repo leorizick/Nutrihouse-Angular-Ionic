@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController } from 'ionic-angular';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { AuthService } from '../../services/auth.service';
+import { StorageService } from '../../services/storage.service';
 
 
 @IonicPage()
@@ -19,7 +20,8 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
      public menu: MenuController,
-     public auth : AuthService) {
+     public auth : AuthService,
+     public storage: StorageService) {
 
   }
 
@@ -29,6 +31,23 @@ export class HomePage {
   ionViewDidLeave(){
     this.menu.swipeEnable(true)
   }
+
+  ionViewDidEnter(){
+    let localUser = this.storage.getLocalUser();
+    if (localUser != null) {
+  
+    this.auth.refreshToken()
+    .subscribe(response => {
+     this.auth.sucessfullLogin(response.headers.get("Authorization"));
+      this.navCtrl.setRoot("MenuPages");
+    },
+    
+    error => {});
+  }
+  else{
+    return null;
+  }
+}
 
   login(){
     this.auth.authenticate(this.creds)

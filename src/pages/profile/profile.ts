@@ -31,13 +31,20 @@ export class ProfilePage {
 
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser();
-    if(localUser && localUser.email){
-      this.userService.findByUsername(localUser.email)
+    if(localUser && localUser.username){
+      this.userService.findByUsername(localUser.username)
       .subscribe(response => {this.user = response;
         this.getImageIfExists()
-        console.log(this.user.imageUrl);
+       
       },
-      error => {});
+      error => {
+        if (error.status == 403){
+          this.navCtrl.setRoot('HomePage');
+        }
+      });
+    }
+    else{
+      this.navCtrl.setRoot('HomePage');
     }
   }
 

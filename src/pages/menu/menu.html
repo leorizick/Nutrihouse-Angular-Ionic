@@ -18,7 +18,7 @@
     <ion-list>
       <button ion-item (click)="profilePage()">
         <ion-thumbnail item-start>
-          <img class="ProfButton" src= "assets/imgs/avatarblank.jpg"  >
+          <img class="ProfButton" src= "assets/imgs/cardicon.jpg"  >
         </ion-thumbnail>
         <h2> Profile</h2>
       </button>
@@ -28,17 +28,23 @@
           </ion-thumbnail>
           <h2> Clientes</h2>
         </button>
+        <button ion-item (click)="produtosPage()">
+          <ion-thumbnail item-start>
+            <img class="ProdButton" src="assets/imgs/produtosicon.png" >
+          </ion-thumbnail>
+          <h2> Produtos</h2>
+        </button>
         <button ion-item (click)="categoriasPage()">
         <ion-thumbnail item-start>
           <img class="CatButton" src="assets/imgs/categorieicon.png" >
         </ion-thumbnail>
         <h2> Categorias</h2>
       </button>
-      <button ion-item (click)="ProdutosPage()">
+      <button ion-item (click)="logoutPage()">
         <ion-thumbnail item-start>
-          <img class="ProdButton" src="assets/imgs/produtosicon.png" >
+          <img class="LogoutButton" src="assets/imgs/Logouticon3.png" >
         </ion-thumbnail>
-        <h2> Produtos</h2>
+        <h2> Logout</h2>
       </button>
       
     </ion-list>
