@@ -34,5 +34,10 @@ export class CategoriasPage {
     error => {});
   }
 
+  showProdutos(categoria_nome : string){
+     this.navCtrl.push('ProdutosPage', {categoria_nome: categoria_nome})
+
+  }
+
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 import { API_CONFIG } from "../../config/api.config";
@@ -12,9 +12,17 @@ export class UserService{
 }
 
 findByUsername(username : string) : Observable<UserDto> {
-
     return this.http.get<UserDto>(
          `${API_CONFIG.baseUrl}/usuarios/username?value=${username}`);
+}
+
+insert(obj : UserDto){
+    return this.http.post(`${API_CONFIG.baseUrl}/usuarios`, obj,
+    {
+        observe: 'response',
+        responseType: 'text'
+    }
+    );
 }
 
 getImageFromLocal(id : string) : Observable<any>{

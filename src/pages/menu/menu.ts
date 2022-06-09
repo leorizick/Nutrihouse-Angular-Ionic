@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { a } from '@angular/core/src/render3';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserDto } from '../../models/user.dto';
 import { AuthService } from '../../services/auth.service';
-import { ProfilePage } from '../profile/profile';
 
 
 @IonicPage()
@@ -23,17 +21,23 @@ public profile : UserDto;
     }
 
     categoriasPage(){
-      this.navCtrl.setRoot("CategoriasPage");
+      this.navCtrl.push("CategoriasPage");
     }
 
 
     profilePage(){
-      this.navCtrl.setRoot("ProfilePage");
+      this.navCtrl.push("ProfilePage");
+    }
+
+    produtosPage(){
+      this.navCtrl.push("ProdutosPage")
     }
 
     logoutPage(){
       this.auth.logout();
       this.navCtrl.setRoot('HomePage');
     }
+
+   
   
 }

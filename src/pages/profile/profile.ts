@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { isFunctionDeclaration } from 'typescript';
 import { UserDto } from '../../models/user.dto';
 import { UserService } from '../../services/domain/user.service';
 import { StorageService } from '../../services/storage.service';
+import { HomeModule } from '../home/home.module';
 
 /**
  * Generated class for the ProfilePage page.
@@ -25,9 +27,11 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public storage : StorageService,
-     public userService : UserService
+     public userService : UserService,
+     public alertCtrl: AlertController
      ) {
   }
+
 
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser();
@@ -54,4 +58,24 @@ export class ProfilePage {
   },
   error => {});
   }
+
+  signup(){
+    if (this.user.perfis == "ADMIN"){
+    this.navCtrl.push('SignupPage');
+  }
+  else{
+    let alert =  this.alertCtrl.create({
+      title: 'Acesso negado!',
+      message: "Somente o ADMIN pode cadastrar novos funcionarios!",
+      enableBackdropDismiss: false,
+      buttons: [
+          {
+              text: 'Ok'
+      }
+      ]
+  });
+  alert.present();
+  }
+}
+
 }
