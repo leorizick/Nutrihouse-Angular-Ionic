@@ -32,6 +32,9 @@ public profile : UserDto;
     produtosPage(){
       this.navCtrl.push("ProdutosPage")
     }
+    clientesPage(){
+      this.navCtrl.push("ClientesPage")
+    }
 
     logoutPage(){
       this.auth.logout();

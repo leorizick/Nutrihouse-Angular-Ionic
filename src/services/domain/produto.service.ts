@@ -11,12 +11,12 @@ export class ProdutoService{
 
     }
 
-    findAll() : Observable<ProdutoDto>{
-        return this.http.get<ProdutoDto>(`${API_CONFIG.baseUrl}/produtos`);
+    findAll() : Observable<ProdutoDto[]>{
+        return this.http.get<ProdutoDto[]>(`${API_CONFIG.baseUrl}/produtos`);
     }
     
-    findAllPerCategorias(categoria_nome: string): Observable<ProdutoDto>{
-        return this.http.get<ProdutoDto>(
+    findAllPerCategorias(categoria_nome: string): Observable<ProdutoDto[]>{
+        return this.http.get<ProdutoDto[]>(
             `${API_CONFIG.baseUrl}/produtos/categorias/tipocadastro?value=${categoria_nome}`);
     }
 }

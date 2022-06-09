@@ -54,7 +54,7 @@ export class ProfilePage {
 
   getImageIfExists(){
     this.userService.getImageFromLocal(this.user.id)
-    .subscribe(Response => {this.user.imageUrl= `assets/imgs/${this.user.id}.jpg`;
+    .subscribe(response => {this.user.imageUrl= `assets/imgs/${this.user.id}.jpg`;
   },
   error => {});
   }
