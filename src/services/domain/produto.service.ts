@@ -15,8 +15,8 @@ export class ProdutoService{
         return this.http.get<ProdutoDto[]>(`${API_CONFIG.baseUrl}/produtos`);
     }
     
-    findAllPerCategorias(categoria_nome: string): Observable<ProdutoDto[]>{
+    findAllPerCategorias(categoria_id: string): Observable<ProdutoDto[]>{
         return this.http.get<ProdutoDto[]>(
-            `${API_CONFIG.baseUrl}/produtos/categorias/tipocadastro?value=${categoria_nome}`);
+            `${API_CONFIG.baseUrl}/produtos/categorias/${categoria_id}`);
     }
 }

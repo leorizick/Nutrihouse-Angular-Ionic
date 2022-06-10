@@ -6,13 +6,17 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>clientes</ion-title>
+    <ion-title>clientes </ion-title> 
+      <ion-thumbnail item-start>
+        <img  (click)="cadClientes()" class="add" src='assets/imgs/addicon.png' >
+      </ion-thumbnail>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
   
-  <ion-list>
+  <ion-list class="cli">
     <button ion-item *ngFor="let item of items">
       <ion-thumbnail item-start>
         <img class="circle" src= {{item.imageUrl}}>

@@ -15,6 +15,15 @@ export class ClienteService{
     findAll() : Observable<ClienteDto[]>{
         return this.http.get<ClienteDto[]>(`${API_CONFIG.baseUrl}/clientes`);
     }
+
+    insert(obj: ClienteDto) {
+        return this.http.post(`${API_CONFIG.baseUrl}/clientes`, obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
     
    /* findAllPerCategorias(categoria_nome: string): Observable<ProdutoDto[]>{
         return this.http.get<ProdutoDto[]>(

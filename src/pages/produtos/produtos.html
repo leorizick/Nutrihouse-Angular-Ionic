@@ -11,16 +11,26 @@
 </ion-header>
 
 <ion-content padding>
-<ion-list>
-  <button ion-item *ngFor="let item of items">
-    <ion-thumbnail item-start>
-      <img class="carrinho" src="assets/imgs/prod.jpg" >
-    </ion-thumbnail>
-    <h1><p>Nome: </p>{{item.nome}}</h1>
-    <h2><p>Descrição: </p>{{item.descricao}}</h2>
-    <h2><p>CodBarras: </p>{{item.codBarras}}</h2>
-    <h2><p>Quantidade: </p>{{item.quantidade}}</h2>
-    <h1><p>Preco: </p>{{item.preco | currency}}</h1>
-  </button>
-</ion-list>
+  <ion-list class='prod'>
+    <button (click)="showDetails()" ion-item *ngFor="let item of items">
+      <ion-thumbnail item-start>
+        <img class="carrinho" src="assets/imgs/prod.jpg">
+      </ion-thumbnail>
+      <h1>
+        <p>Nome: </p>{{item.nome}}
+      </h1>
+      <h3>
+        <p> Categoria:</p>{{item.categoria.name}}
+      </h3>
+      <h2>
+        <p>CodBarras: </p>{{item.codBarras}}
+      </h2>
+      <h2>
+        <p>Quantidade: </p>{{item.quantidade}}
+      </h2>
+      <h1 class="preco">
+        <p>Preco: </p>{{item.preco | currency}}
+      </h1>
+    </button>
+  </ion-list>
 </ion-content>

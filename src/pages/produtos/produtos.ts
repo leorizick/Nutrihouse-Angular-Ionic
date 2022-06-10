@@ -25,9 +25,9 @@ export class ProdutosPage {
   }
 
   ionViewDidLoad() {
-    let categoria_nome = this.navParams.get('categoria_nome');
-    if(categoria_nome != null){
-    this.produtoService.findAllPerCategorias(categoria_nome)
+    let categoria_id = this.navParams.get('categoria_id');
+    if(categoria_id != null){
+    this.produtoService.findAllPerCategorias(categoria_id)
     .subscribe(response => {
       this.items = response;
     },
@@ -42,6 +42,10 @@ else{
   },
   error => {});
 }
+  }
+
+  showDetails(){
+    this.navCtrl.push('ProdutoDetailPage')
   }
 
 }

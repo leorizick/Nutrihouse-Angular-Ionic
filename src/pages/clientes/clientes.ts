@@ -29,6 +29,10 @@ export class ClientesPage {
   ) {
   }
 
+  cadClientes(){
+    this.navCtrl.push('CadastroClientePage')
+  }
+
 
   ionViewDidLoad() {
     this.clienteService.findAll()

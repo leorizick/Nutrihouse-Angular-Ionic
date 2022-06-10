@@ -4,4 +4,13 @@ page-produtos {
     .carrinho{
         
     }
+
+    .prod{
+        position: absolute; left: -13px;
+    }
+
+   .preco{
+    position: absolute; right: 0px;
+    position: absolute; bottom: 3px;
+   }
 }

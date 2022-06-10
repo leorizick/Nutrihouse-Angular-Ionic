@@ -11,6 +11,15 @@ export class CategoriaService{
     }
 
     findAll() : Observable<CategoriaDTO[]> {
-        return this.http.get<CategoriaDTO[]> (`${API_CONFIG.baseUrl}/produtos/categorias`);
+        return this.http.get<CategoriaDTO[]> (`${API_CONFIG.baseUrl}/categorias`);
+    }
+
+    insert(obj: CategoriaDTO) {
+        return this.http.post(`${API_CONFIG.baseUrl}/categorias`, obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
     }
 }

@@ -5,17 +5,18 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Categorias</ion-title>
+    <img  (click)="cadCategorias()" class="add" src='assets/imgs/addicon.png' >
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   
   <ion-list>
-    <button (click)="showProdutos(item)" ion-item *ngFor="let item of items">
+    <button (click)="showProdutos(item.id)" ion-item *ngFor="let item of items">
       <ion-thumbnail item-start >
-        <img class="imgCat" src="assets/imgs/img{{item}}.png">
+        <img class="imgCat" src="assets/imgs/categorias/{{item.id}}.png">
       </ion-thumbnail>
-      <h2 > {{item}}</h2>
+      <h2 > {{item.name}}</h2>
     </button>
   </ion-list>
 

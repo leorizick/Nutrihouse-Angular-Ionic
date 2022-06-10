@@ -5,6 +5,12 @@ page-clientes {
         border-radius: 50%;
     }
 
+    .add{
+        max-width: 50px;
+        max-height: 50px;
+        position: absolute; right:5px; top: 5px;
+    }
+
     .title{
 
     }
@@ -15,5 +21,9 @@ page-clientes {
 
     .documento{
         
+    }
+
+    .cli{
+        position: absolute; left: -5px;
     }
 }
