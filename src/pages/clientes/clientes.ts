@@ -49,10 +49,13 @@ export class ClientesPage {
       this.clienteService.getImageFromLocal(item.id)
         .subscribe(Response => {
           item.imageUrl = `assets/imgs/clientes/${item.id}.png`;
-        console.log(Response)
         },
           error => {item.imageUrl = 'assets/imgs/editicon.png'});
     }
+  }
+
+  showDetails(cliente_id : string){
+    this.navCtrl.push('ClienteDetailPage', {cliente_id : cliente_id});
   }
 
 

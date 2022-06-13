@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, IonicPage, MenuController, NavController, NavParams } from 'ionic-angular';
 import { ClienteDto } from '../../models/cliente.dto';
 import { ClienteService } from '../../services/domain/cliente.service';
+
 /**
- * Generated class for the CadastroClientePage page.
+ * Generated class for the EditClientePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,13 +13,11 @@ import { ClienteService } from '../../services/domain/cliente.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-cadastro-cliente',
-  templateUrl: 'cadastro-cliente.html',
+  selector: 'page-edit-cliente',
+  templateUrl: 'edit-cliente.html',
 })
-export class CadastroClientePage {
-
+export class EditClientePage {
   formGroup: FormGroup
-  editGroup: FormGroup
   editCliente: ClienteDto
 
   constructor(public navCtrl: NavController,
@@ -28,40 +27,27 @@ export class CadastroClientePage {
     public editBuilder: FormBuilder,
     public clienteService: ClienteService,
     public alertCtrl: AlertController) {
-    this.formGroup = this.formBuilder.group({
-      nome: ['', [Validators.maxLength(30)]],
-      descricao: ['', [Validators.required]],
-      documento: ['', [Validators.required]],
-      tipoCliente: ['', [Validators.required]]
-
+      this.editCliente = this.navParams.get('cliente');
+      this.formGroup = this.formBuilder.group({
+        id: [this.editCliente.id, [Validators.required]],
+        nome: [this.editCliente.nome, [Validators.maxLength(30)]],
+        descricao: [this.editCliente.descricao, [Validators.required]],
+        tipoCliente: [0, [Validators.required]],
+        documento: [this.editCliente.documento, [Validators.required]],
+        tipoCadastro: [0, [Validators.required]]
     });
   }
 
 
-  cadastroCliente() {
+  editarCliente() {
     console.log(this.formGroup.value);
-    this.clienteService.insert(this.formGroup.value)
+    this.clienteService.update(this.formGroup.value)
       .subscribe(response => {
         this.showInsertOk();
       },
         error => { });
+        
   }
-
-/*  editarCliente(cliente_id : string) {
-    this.clienteService.findById(cliente_id)
-    .subscribe(response => {
-      this.editCliente = response;
-    },
-    error => {});
-    
-    console.log(this.editGroup.value);
-    this.clienteService.insert(this.editGroup.value)
-      .subscribe(response => {
-        this.showInsertOk();
-      },
-        error => { });
-  }*/
-
 
   showInsertOk() {
     let alert = this.alertCtrl.create({
@@ -81,3 +67,4 @@ export class CadastroClientePage {
   }
 
 }
+

@@ -10,17 +10,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content fullscreen>
+
   <ion-fab top right>
-    <button navPush="CartPage" ion-fab mini><ion-icon name="cart"></ion-icon></button>
+    <button navPush="CartPage" ion-fab mini>
+      <ion-icon name="cart"></ion-icon>
+    </button>
   </ion-fab>
-  <ion-list class='prod'>
+
+  <ion-list class='prod' lines="full">
+
     <button (click)="showDetails(item?.id)" ion-item *ngFor="let item of items">
       <ion-thumbnail item-start>
-        <img class="carrinho" src="assets/imgs/prod.jpg">
+        <img class="foto" src={{item.imageUrl}}>
       </ion-thumbnail>
       <h1>
-        <p>Nome: </p>{{item.nome}}
+      {{item.nome}}
       </h1>
       <h3>
         <p> Categoria:</p>{{item.categoria.name}}

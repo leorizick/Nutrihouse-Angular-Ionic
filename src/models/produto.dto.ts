@@ -6,5 +6,5 @@ export interface ProdutoDto {
     quantidade: number;
     preco: number;
     tipoCadastro: string;
-
+    imageUrl? : string;
 }

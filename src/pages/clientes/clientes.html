@@ -6,27 +6,34 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>clientes </ion-title> 
-      <ion-thumbnail item-start>
-        <img  (click)="cadClientes()" class="add" src='assets/imgs/addicon.png' >
-      </ion-thumbnail>
+    <ion-title>clientes </ion-title>
+    <ion-thumbnail item-start>
+      <img (click)="cadClientes()" class="add" src='assets/imgs/addicon.png'>
+    </ion-thumbnail>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  
+
   <ion-list class="cli">
-    <button ion-item *ngFor="let item of items">
+    <button (click)="showDetails(item?.id)" ion-item *ngFor="let item of items">
       <ion-thumbnail item-start>
-        <img class="circle" src= {{item.imageUrl}}>
+        <img class="circle" src={{item.imageUrl}}>
       </ion-thumbnail>
-      <h1 class="nome"><p>Nome:</p> {{item.nome}}</h1>
-      <h3 class="descricao"><p>Descrição:</p>{{item.descricao}}</h3>
-      <h2 class="documento"> <p>Documento:</p> {{item.documento}}</h2>
-      <h2 class="cliente"><p>Tipo:</p>{{item.tipoCliente}}</h2>
+      <h1 class="nome">
+        <p>Nome:</p> {{item.nome}}
+      </h1>
+      <p>Documento:</p>
+      <h2 class="documento">
+         {{item.documento}}
+      </h2>
+      <p>Tipo:</p>
+      <h2>
+        {{item.tipoCliente}}
+      </h2>
     </button>
   </ion-list>
 
-  
+
 </ion-content>

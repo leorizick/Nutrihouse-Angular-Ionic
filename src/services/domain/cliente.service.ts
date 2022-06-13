@@ -6,13 +6,18 @@ import { ClienteDto } from "../../models/cliente.dto";
 
 
 @Injectable()
-export class ClienteService{
-    
-    constructor(public http: HttpClient){
+export class ClienteService {
+
+
+    constructor(public http: HttpClient) {
 
     }
 
-    findAll() : Observable<ClienteDto[]>{
+    findById(cliente_id: string) {
+        return this.http.get<ClienteDto>(`${API_CONFIG.baseUrl}/clientes/${cliente_id}`);
+    }
+
+    findAll(): Observable<ClienteDto[]> {
         return this.http.get<ClienteDto[]>(`${API_CONFIG.baseUrl}/clientes`);
     }
 
@@ -24,15 +29,19 @@ export class ClienteService{
             }
         );
     }
-    
-   /* findAllPerCategorias(categoria_nome: string): Observable<ProdutoDto[]>{
-        return this.http.get<ProdutoDto[]>(
-            `${API_CONFIG.baseUrl}/produtos/categorias/tipocadastro?value=${categoria_nome}`);
-    }*/
 
-    getImageFromLocal(id : string) : Observable<any>{
-        let url = `assets/imgs/clientes/${id}.png`
-        return this.http.get(url, {responseType : 'blob'});
-        }
+    update(obj: ClienteDto) {
+        return this.http.put(`${API_CONFIG.baseUrl}/clientes/${obj.id}`, obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
     }
-        
+
+    getImageFromLocal(id: string): Observable<any> {
+        let url = `assets/imgs/clientes/${id}.png`
+        return this.http.get(url, { responseType: 'blob' });
+    }
+}
+
