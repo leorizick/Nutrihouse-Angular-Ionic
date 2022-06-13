@@ -11,6 +11,10 @@ export class ProdutoService{
 
     }
 
+    findById(produto_id : string) {
+        return this.http.get<ProdutoDto>(`${API_CONFIG.baseUrl}/produtos/${produto_id}`);
+    }
+
     findAll() : Observable<ProdutoDto[]>{
         return this.http.get<ProdutoDto[]>(`${API_CONFIG.baseUrl}/produtos`);
     }

@@ -12,7 +12,7 @@
 
 <ion-content padding>
   <ion-card>
-    <img [src]="item?.imageUrl || 'assets/imgs/editicon.png'" />
+    <img class="img" [src]="item?.imageUrl || 'assets/imgs/editicon.png'" />
     <ion-card-content>
       <ion-card-title>
         {{item?.nome}}
@@ -26,6 +26,6 @@
     </ion-card-content>
   </ion-card>
 
-  <button ion-button block outline> Adicionar ao pedido</button>
+  <button ion-button block outline (click)="addToCart(item)"> Adicionar ao pedido</button>
   <button ion-button block outline> Editar Produto</button>
 </ion-content>

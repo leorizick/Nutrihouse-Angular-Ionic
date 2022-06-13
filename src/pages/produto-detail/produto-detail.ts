@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProdutoDto } from '../../models/produto.dto';
+import { cartService } from '../../services/domain/cart.service';
+import { ProdutoService } from '../../services/domain/produto.service';
 
 /**
  * Generated class for the ProdutoDetailPage page.
@@ -18,19 +20,28 @@ export class ProdutoDetailPage {
 
   item: ProdutoDto;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public produtoService: ProdutoService,
+     public cartService: cartService) {
   }
 
   ionViewDidLoad() {
-    this.item = {
-      id: '1',
-    nome: 'remedio',
-    descricao: 'teste',
-    codBarras: '123123123123',
-    quantidade: 4,
-    preco: 80.00,
-    tipoCadastro: 'ATIVO'
+    let produto_id = this.navParams.get('produto_id');
+    this.produtoService.findById(produto_id)
+    .subscribe(response => {
+      this.item = response;
+    },
+    error => {});
+    }
+
+    addToCart(produto: ProdutoDto){
+      this.cartService.addProduto(produto);
+      this.navCtrl.push('CartPage');
+
     }
   }
 
-}
+  
+
+
